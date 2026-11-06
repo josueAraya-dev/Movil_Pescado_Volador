@@ -1,0 +1,7 @@
+{
+  "name": "Pescado_Volador_Movil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
