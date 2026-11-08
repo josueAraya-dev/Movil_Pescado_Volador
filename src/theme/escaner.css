@@ -1,0 +1,52 @@
+/* Punto 7: la cámara se dibuja detrás del WebView, que se vuelve transparente. */
+html.escaner-activo,
+body.escaner-activo {
+  background: transparent !important;
+  --background: transparent;
+  --ion-background-color: transparent;
+}
+
+body.escaner-activo {
+  visibility: hidden;
+}
+
+body.escaner-activo .visor-escaner {
+  visibility: visible;
+}
+
+.visor-escaner {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  /* Punto 9: respeta las áreas seguras. */
+  padding: calc(var(--ion-safe-area-top, 0px) + 2rem) 1.5rem calc(var(--ion-safe-area-bottom, 0px) + 2rem);
+  color: #fff;
+  font-family: var(--ion-font-family);
+}
+
+.visor-escaner__texto {
+  margin: 0;
+  max-width: 22rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 80%);
+}
+
+.visor-escaner__marco {
+  width: min(85vw, 24rem);
+  aspect-ratio: 2 / 1;
+  border: 3px solid #fff;
+  border-radius: var(--radio, 0.5rem);
+  box-shadow: 0 0 0 100vmax rgb(0 0 0 / 45%);
+}
+
+.visor-escaner__cancelar {
+  min-width: 10rem;
+  min-height: var(--tap, 2.75rem);
+}
