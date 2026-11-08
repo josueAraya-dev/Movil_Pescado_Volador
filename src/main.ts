@@ -1,18 +1,18 @@
 import { IonicVue } from '@ionic/vue';
+import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 
 import App from './App.vue';
 import router from './router';
+import { useRedStore } from './stores/red';
+import { useTemaStore } from './stores/tema';
 
-/* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
 
-/* Basic CSS for apps built with Ionic */
 import '@ionic/vue/css/normalize.css';
 import '@ionic/vue/css/structure.css';
 import '@ionic/vue/css/typography.css';
 
-/* Optional CSS utils that can be commented out */
 import '@ionic/vue/css/padding.css';
 import '@ionic/vue/css/float-elements.css';
 import '@ionic/vue/css/text-alignment.css';
@@ -20,22 +20,20 @@ import '@ionic/vue/css/text-transformation.css';
 import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+import '@ionic/vue/css/palettes/dark.class.css';
 
-/* @import '@ionic/vue/css/palettes/dark.always.css'; */
-/* @import '@ionic/vue/css/palettes/dark.class.css'; */
-import '@ionic/vue/css/palettes/dark.system.css';
+import '@fontsource/clarity-city/400.css';
+import '@fontsource/clarity-city/500.css';
+import '@fontsource/clarity-city/600.css';
+import '@fontsource/clarity-city/700.css';
 
-/* Theme variables */
 import './theme/variables.css';
+import './theme/marca.css';
+import './theme/escaner.css';
 
-const app = createApp(App).use(IonicVue).use(router);
+// Pinia antes del router: el guardián usa el store de sesión.
+const app = createApp(App).use(IonicVue).use(createPinia()).use(router);
 
-router.isReady().then(() => {
+Promise.all([useTemaStore().cargar(), useRedStore().iniciar(), router.isReady()]).then(() => {
   app.mount('#app');
 });

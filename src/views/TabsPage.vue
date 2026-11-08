@@ -1,21 +1,19 @@
 <template>
   <ion-page>
     <ion-tabs>
-      <ion-router-outlet></ion-router-outlet>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="tab1" href="/tabs/tab1">
-          <ion-icon aria-hidden="true" :icon="triangle" />
-          <ion-label>Tab 1</ion-label>
+      <ion-router-outlet />
+      <ion-tab-bar id="barra-pestanas" slot="bottom">
+        <ion-tab-button tab="productos" href="/tabs/productos">
+          <ion-icon aria-hidden="true" :icon="cubeOutline" />
+          <ion-label>Productos</ion-label>
         </ion-tab-button>
-
-        <ion-tab-button tab="tab2" href="/tabs/tab2">
-          <ion-icon aria-hidden="true" :icon="ellipse" />
-          <ion-label>Tab 2</ion-label>
+        <ion-tab-button v-if="sesion.puede('view sales')" tab="ventas" href="/tabs/ventas">
+          <ion-icon aria-hidden="true" :icon="receiptOutline" />
+          <ion-label>Ventas</ion-label>
         </ion-tab-button>
-
-        <ion-tab-button tab="tab3" href="/tabs/tab3">
-          <ion-icon aria-hidden="true" :icon="square" />
-          <ion-label>Tab 3</ion-label>
+        <ion-tab-button v-if="sesion.puede('receive purchases')" tab="recepcion" href="/tabs/recepcion">
+          <ion-icon aria-hidden="true" :icon="barcodeOutline" />
+          <ion-label>Recepción</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -23,6 +21,10 @@
 </template>
 
 <script setup lang="ts">
-import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { IonIcon, IonLabel, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/vue';
+import { barcodeOutline, cubeOutline, receiptOutline } from 'ionicons/icons';
+
+import { useSesionStore } from '@/stores/sesion';
+
+const sesion = useSesionStore();
 </script>

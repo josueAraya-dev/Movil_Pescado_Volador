@@ -1,0 +1,354 @@
+ion-content h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+}
+
+ion-content h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+}
+
+ion-content {
+  --color: var(--texto);
+}
+
+ion-toolbar.barra-marca {
+  --background: var(--encabezado);
+  --color: var(--encabezado-texto);
+  --ion-color-base: var(--encabezado-texto);
+}
+
+ion-header.encabezado-marca {
+  border-bottom: 0.25rem solid var(--franja-movil);
+}
+
+@media (min-width: 48rem) {
+  ion-header.encabezado-marca {
+    border-bottom-color: var(--franja-ancha);
+  }
+}
+
+ion-tab-bar {
+  --background: var(--superficie);
+  --border: 1px solid var(--borde);
+  --color: var(--texto-sec);
+  --color-selected: var(--texto);
+}
+
+ion-tab-button.tab-selected {
+  --background: var(--badge-neutro-fondo);
+  font-weight: 700;
+}
+
+ion-card.tarjeta {
+  --background: var(--superficie);
+  --color: var(--texto);
+  margin: 0;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+}
+
+ion-card.tarjeta ion-card-header {
+  padding: 1rem 1rem 0.5rem;
+}
+
+ion-card.tarjeta ion-card-title {
+  color: var(--texto);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+ion-card.tarjeta ion-card-content {
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  color: var(--texto);
+  font-size: 1rem;
+}
+
+ion-card.tarjeta ion-card-content p {
+  margin: 0;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta-pie {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.grid-productos {
+  --prod-cols: 2;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(var(--prod-cols), minmax(0, 1fr));
+}
+
+@media (min-width: 36rem) {
+  .grid-productos {
+    --prod-cols: 3;
+  }
+}
+
+@media (min-width: 64rem) {
+  .grid-productos {
+    --prod-cols: 4;
+  }
+}
+
+.grid-ventas {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+}
+
+.grid-ventas > *,
+.grid-productos > * {
+  min-width: 0;
+}
+
+.precio {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.ayuda {
+  font-size: 0.875rem;
+  color: var(--texto-sec);
+  margin: 0.25rem 0 0;
+}
+
+ion-card.mensaje {
+  --background: var(--badge-neutro-fondo);
+  --color: var(--badge-neutro-texto);
+  margin: 0 0 1rem;
+  border-radius: var(--radio-sm);
+  box-shadow: none;
+}
+
+ion-card.mensaje ion-card-content {
+  padding: 0.75rem;
+  color: inherit;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+ion-card.mensaje--error {
+  --background: var(--badge-error-fondo);
+  --color: var(--badge-error-texto);
+}
+
+ion-card.mensaje--exito {
+  --background: var(--badge-ok-fondo);
+  --color: var(--badge-ok-texto);
+}
+
+ion-card.mensaje--advertencia {
+  --background: var(--badge-bajo-fondo);
+  --color: var(--badge-bajo-texto);
+}
+
+.mensaje-cuerpo {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.mensaje-cuerpo ion-icon {
+  flex: none;
+  font-size: 1.25rem;
+}
+
+.mensaje-texto {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.mensaje-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.mensaje-acciones ion-button {
+  margin: 0;
+}
+
+ion-card.estado-vacio {
+  --background: var(--superficie);
+  --color: var(--texto);
+  margin: 0 0 1rem;
+  border: 1px dashed var(--borde);
+  border-radius: var(--radio);
+  box-shadow: none;
+}
+
+ion-card.estado-vacio ion-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: inherit;
+}
+
+.estado-vacio-icono {
+  font-size: 2.5rem;
+  color: var(--texto-sec);
+}
+
+.estado-vacio-texto {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.estado-carga {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 0;
+}
+
+.ayuda + ion-card.mensaje,
+.ayuda + ion-card.estado-vacio {
+  margin-top: 1rem;
+}
+
+fieldset.grupo-campos > ion-card {
+  margin: 0;
+}
+
+.resumen {
+  margin: 0.5rem 0 1rem;
+}
+
+ion-badge.badge {
+  --padding-top: 0.25rem;
+  --padding-bottom: 0.25rem;
+  --padding-start: 0.75rem;
+  --padding-end: 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+ion-badge.badge-ok {
+  --background: var(--badge-ok-fondo);
+  --color: var(--badge-ok-texto);
+}
+
+ion-badge.badge-bajo {
+  --background: var(--badge-bajo-fondo);
+  --color: var(--badge-bajo-texto);
+}
+
+ion-badge.badge-error {
+  --background: var(--badge-error-fondo);
+  --color: var(--badge-error-texto);
+}
+
+ion-badge.badge-neutro {
+  --background: var(--badge-neutro-fondo);
+  --color: var(--badge-neutro-texto);
+}
+
+fieldset.grupo-campos {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1rem;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+fieldset.grupo-campos legend {
+  padding-inline: 0.5rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+ion-input.campo,
+ion-select.campo,
+ion-textarea.campo {
+  --border-color: var(--borde);
+  --border-radius: var(--radio-sm);
+  --highlight-color-focused: var(--ion-color-secondary);
+  --highlight-color-invalid: var(--ion-color-danger);
+  min-height: var(--tap);
+}
+
+ion-searchbar.buscador {
+  --background: var(--superficie);
+  --box-shadow: none;
+  --border-radius: var(--radio-sm);
+  --color: var(--texto);
+  --placeholder-color: var(--texto-sec);
+  --icon-color: var(--texto-sec);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-sm);
+  padding: 0;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.acciones ion-button {
+  margin: 0;
+}
+
+ion-button {
+  --border-radius: var(--radio-sm);
+  text-transform: none;
+  font-weight: 500;
+}
+
+.contenedor-angosto {
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.contenedor-medio {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.contacto {
+  border-top: 1px solid var(--borde);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-style: normal;
+  color: var(--texto);
+}
+
+.contacto p {
+  margin: 0;
+}
